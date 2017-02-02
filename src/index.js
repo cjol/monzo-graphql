@@ -1,14 +1,25 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
-import schema from './schema'
+import { graphqlExpress, graphiqlExpress, } from 'graphql-server-express';
+import schema from './schema';
+import auth from './auth';
+import cookieParser from 'cookie-parser';
 
 const myGraphQLSchema = schema;
-const PORT = 3000;
+const PORT = 5000;
 
-var app = express();
+var app = express( );
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
-app.use('/', graphiqlExpress({ endpointURL: '/graphql' }));
+app.use(cookieParser( ));
 
-app.listen(process.env.PORT || PORT);
+app.use('/graphql', bodyParser.json( ), graphqlExpress(req => ({
+	schema: myGraphQLSchema,
+	context: {
+		token: req.cookies.monzoToken
+	},
+})));
+
+app.use('/', auth, graphiqlExpress({ endpointURL: '/graphql' }));
+
+app.listen( process.env.PORT || PORT );
+console.log( `Listening on ${ process.env.PORT || PORT }` )
