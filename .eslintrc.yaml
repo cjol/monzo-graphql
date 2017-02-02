@@ -1,0 +1,36 @@
+parser: "babel-eslint"
+plugins:
+  - react
+  - jsx-a11y
+  - import
+rules:
+  eqeqeq:
+    - "warn"
+    - "allow-null"
+  prefer-const:
+    - "warn"
+  semi:
+    - "warn"
+  no-unused-vars:
+    - "warn"
+  comma-dangle:
+    - "off"
+  no-console:
+    - "off"
+  no-tabs:
+    - "off"
+  indent:
+    - "warn"
+    - "tab"
+    - SwitchCase: 1
+  no-restricted-syntax:
+    - "off"
+  padded-blocks:
+    - "off"
+  spaced-commment:
+    - "off"
+  import/prefer-default-export:
+    - "off"
+  no-underscore-dangle:
+    - "error"
+    - allowAfterThis: true
