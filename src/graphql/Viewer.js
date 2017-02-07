@@ -1,9 +1,9 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql';
 import request from 'request-promise';
-import AccountType from './AccountType';
+import Account from './Account';
 
 export default new GraphQLObjectType({
-	name: 'ViewerType',
+	name: 'Viewer',
 	fields: () => ({
 		token: {
 			type: GraphQLString,
@@ -13,7 +13,7 @@ export default new GraphQLObjectType({
 		},
 
 		accounts: {
-			type: new GraphQLList(AccountType),
+			type: new GraphQLList(Account),
 			async resolve( viewer, params, context ) {
 
 				var options = {

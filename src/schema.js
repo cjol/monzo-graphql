@@ -1,7 +1,7 @@
 import { graphql, GraphQLSchema, GraphQLList, GraphQLInt, GraphQLObjectType, GraphQLString } from 'graphql';
 import request from 'request-promise';
 
-import ViewerType from './graphql/ViewerType';
+import Viewer from './graphql/Viewer';
 
 
 const schema = new GraphQLSchema({
@@ -9,7 +9,7 @@ const schema = new GraphQLSchema({
 		name: 'RootQueryType',
 		fields: {
 			Viewer: {
-				type: ViewerType,
+				type: Viewer,
 				resolve( parent, params, context ) {
 					return {};
 				}

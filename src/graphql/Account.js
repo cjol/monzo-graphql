@@ -1,14 +1,14 @@
-import { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt } from 'graphql';
+import { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLList, GraphQLInt } from 'graphql';
 import GraphQLDate from 'graphql-date';
-import BalanceType from './BalanceType';
-import TransactionType from './TransactionType';
+import Balance from './Balance';
+import Transaction from './Transaction';
 import request from 'request-promise';
 
 export default new GraphQLObjectType({
 	name: 'AccountType',
 	fields: () => (
 		{
-		id: {type: GraphQLString},
+		id: {type: GraphQLID},
 		description: {	type: GraphQLString },
 		created: { type: GraphQLDate,
 			resolve: (account) => {
@@ -16,7 +16,7 @@ export default new GraphQLObjectType({
 			}
 		},
 
-		balance: { type: BalanceType,
+		balance: { type: Balance,
 			async resolve(account, params, context) {
 				const options = {
 					method: 'GET',
@@ -33,7 +33,7 @@ export default new GraphQLObjectType({
 			}
 		},
 
-		transactions: { type: new GraphQLList(TransactionType),
+		transactions: { type: new GraphQLList(Transaction),
 			args: {
 				limit: {
 					type: GraphQLInt

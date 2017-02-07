@@ -2,7 +2,7 @@ import { GraphQLObjectType, GraphQLString } from 'graphql';
 import request from 'request-promise';
 
 export default new GraphQLObjectType({
-	name: 'TransactionMetadataType',
+	name: 'TransactionMetadata',
 	fields: {
 		name: {
 			type: GraphQLString

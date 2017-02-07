@@ -1,15 +1,15 @@
-import {GraphQLObjectType, GraphQLString, GraphQLBoolean} from "graphql";
+import {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLBoolean} from "graphql";
 import GraphQLDate from "graphql-date";
-import AddressType from "./AddressType";
+import Address from "./Address";
 
 export default new GraphQLObjectType(
 	{
-		name: 'MerchantType',
+		name: 'Merchant',
 		fields: () => ({
-			address: { type: AddressType},
+			address: { type: Address},
 			created: { type: GraphQLDate, resolve: ( { created } ) => new Date( created ) },
-			group_id: { type: GraphQLString },
-			id: { type: GraphQLString },
+			group_id: { type: GraphQLID },
+			id: { type: GraphQLID },
 			logo: { type: GraphQLString },
 			emoji: { type: GraphQLString },
 			name: { type: GraphQLString },

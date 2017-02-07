@@ -1,32 +1,32 @@
-import {GraphQLList, GraphQLInt, GraphQLObjectType, GraphQLString, GraphQLBoolean} from "graphql";
+import {GraphQLList, GraphQLID, GraphQLInt, GraphQLObjectType, GraphQLString, GraphQLBoolean} from "graphql";
 import GraphQLDate from "graphql-date";
-import TransactionDeclineReasonType from "./TransactionDeclineReasonType";
-import MerchantType from "./MerchantType";
-import CategoryType from "./CategoryType";
-import AccountType from "./AccountType";
-import TransactionMetadataType from "./TransactionMetadataType";
+import TransactionDeclineReason from "./TransactionDeclineReason";
+import Merchant from "./Merchant";
+import Category from "./Category";
+import Account from "./Account";
+import TransactionMetadata from "./TransactionMetadata";
 import request from 'request-promise';
 
 export default new GraphQLObjectType(
 	{
-		name: 'TransactionType',
+		name: 'Transaction',
 		fields: () => ({
-			id: { type: GraphQLString },
+			id: { type: GraphQLID },
 			description: { type: GraphQLString },
 			amount: { type: GraphQLInt },
 			currency: { type: GraphQLString },
-			merchant: { type: MerchantType },
+			merchant: { type: Merchant },
 			notes: { type: GraphQLString },
 			account_balance: { type: GraphQLInt },
-			category: { type: CategoryType },
+			category: { type: Category },
 			is_load: { type: GraphQLBoolean },
 			local_amount: { type: GraphQLInt },
 			local_currency: { type: GraphQLString },
 			scheme: { type: GraphQLString },
-			dedupe_id: { type: GraphQLString },
+			dedupe_id: { type: GraphQLID },
 			originator: { type: GraphQLBoolean },
 			include_in_spending: { type: GraphQLBoolean },
-			account_id: { type: GraphQLString },
+			account_id: { type: GraphQLID },
 			counterparty: { type: GraphQLString },
 
 			// TODO!
@@ -43,7 +43,7 @@ export default new GraphQLObjectType(
 				resolve: ( tx, {key}) => tx.metadata[key] || null
 			},
 
-			metadata: { type: new GraphQLList( TransactionMetadataType ),
+			metadata: { type: new GraphQLList( TransactionMetadata ),
 				resolve( tx ) {
 					const result = [];
 					for (const key in tx.metadata) {
@@ -58,7 +58,7 @@ export default new GraphQLObjectType(
 				}
 			},
 
-			account: { type: AccountType,
+			account: { type: Account,
 				resolve: async ( tx, params, context ) => {
 
 					// annoyingly Monzo have no `account` endpoint so we have to filter down all accounts again
@@ -77,7 +77,7 @@ export default new GraphQLObjectType(
 			},
 
 			decline_reason: {
-				type: TransactionDeclineReasonType,
+				type: TransactionDeclineReason,
 				resolve( obj ) {
 					if (obj.decline_reason)
 						return obj;

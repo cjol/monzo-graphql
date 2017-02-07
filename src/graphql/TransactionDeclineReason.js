@@ -1,7 +1,7 @@
 import { GraphQLEnumType } from 'graphql';
 
 export default new GraphQLEnumType({
-	name: 'TransactionDeclineReasonType',
+	name: 'TransactionDeclineReason',
 	values: {
 		UNDECLINED: {
 			value: "UNDECLINED"
