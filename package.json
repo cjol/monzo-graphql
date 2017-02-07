@@ -1,15 +1,19 @@
 {
   "name": "monzo-graphql",
   "version": "1.0.0",
-  "description": "GraphQL unterface to the monzo API",
+  "description": "GraphQL interface to the monzo API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	  "build": "babel src -d out",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node out/index.js",
+    "dev": "npm run build && npm start"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
     "graphql": "^0.9.1",
+    "graphql-date": "^1.0.3",
     "graphql-server-express": "^0.6.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
