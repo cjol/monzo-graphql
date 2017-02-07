@@ -5,19 +5,22 @@
         <item url="file://$PROJECT_DIR$/dist/src/graphql/AccountType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/TransactionDeclineReasonType.js" />
         <item url="file://$PROJECT_DIR$/dist/src/graphql/TransactionType.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/graphql/ViewerType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/TransactionType.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/graphql/ViewerType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/AccountType.js" />
         <item url="file://$PROJECT_DIR$/dist/src/schema.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/BalanceType.js" />
         <item url="file://$PROJECT_DIR$/dist/src/index.js" />
         <item url="file://$PROJECT_DIR$/dist/out/auth.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/ViewerType.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/graphql/MerchantType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/config.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/MerchantType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/CategoryType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/schema.js" />
+        <item url="file://$PROJECT_DIR$/dist/out/graphql/AddressType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/graphql/AddressType.js" />
         <item url="file://$PROJECT_DIR$/dist/out/graphql/TransactionMetadataType.js" />
       </sourceFilesUrls>
     </properties>
@@ -25,19 +28,22 @@
       <root url="file://$PROJECT_DIR$/dist/src/graphql/AccountType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/TransactionDeclineReasonType.js" />
       <root url="file://$PROJECT_DIR$/dist/src/graphql/TransactionType.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/graphql/ViewerType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/TransactionType.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/graphql/ViewerType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/AccountType.js" />
       <root url="file://$PROJECT_DIR$/dist/src/schema.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/BalanceType.js" />
       <root url="file://$PROJECT_DIR$/dist/src/index.js" />
       <root url="file://$PROJECT_DIR$/dist/out/auth.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/ViewerType.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/graphql/MerchantType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/config.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/MerchantType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/CategoryType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/schema.js" />
+      <root url="file://$PROJECT_DIR$/dist/out/graphql/AddressType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/graphql/AddressType.js" />
       <root url="file://$PROJECT_DIR$/dist/out/graphql/TransactionMetadataType.js" />
     </CLASSES>
     <SOURCES />

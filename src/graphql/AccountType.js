@@ -8,23 +8,17 @@ export default new GraphQLObjectType({
 	name: 'AccountType',
 	fields: () => (
 		{
-		id: {
-			type: GraphQLString
-		},
-		description: {
-			type: GraphQLString
-		},
-		created: {
-			type: GraphQLDate,
+		id: {type: GraphQLString},
+		description: {	type: GraphQLString },
+		created: { type: GraphQLDate,
 			resolve: (account) => {
 				return new Date(account.created)
 			}
 		},
 
-		balance: {
-			type: BalanceType,
+		balance: { type: BalanceType,
 			async resolve(account, params, context) {
-				var options = {
+				const options = {
 					method: 'GET',
 					auth: {
 						bearer: context.token
@@ -39,8 +33,7 @@ export default new GraphQLObjectType({
 			}
 		},
 
-		transactions: {
-			type: new GraphQLList(TransactionType),
+		transactions: { type: new GraphQLList(TransactionType),
 			args: {
 				limit: {
 					type: GraphQLInt
@@ -48,13 +41,14 @@ export default new GraphQLObjectType({
 			},
 			async resolve( account, params, context ) {
 
-				var options = {
+				const options = {
 					method: 'GET',
 					auth: {
 						bearer: context.token
 					},
 					qs: {
-						account_id: account.id
+						account_id: account.id,
+						"expand[]": "merchant"
 					},
 					uri: 'https://api.monzo.com/transactions',
 				};
@@ -64,7 +58,7 @@ export default new GraphQLObjectType({
 				}
 
 				const body = JSON.parse(await request(options));
-c			return body.transactions;
+				return body.transactions;
 			}
 		}
 	})
